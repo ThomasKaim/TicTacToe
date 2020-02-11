@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Play";
+}
+@model TicTacToe.Common.Board
+
+<h2>Play!</h2>
+<div>
+    @for (int row = 0; row < 3; row++)
+    {
+        <div class="row">
+            @for (int column = 0; column < 3; column++)
+            {
+                <div class="col-xs-1">
+                    @if (Model.IsEmptyAt(row, column))
+                    {
+                        @Html.ActionLink("Mark", "Mark", new { row = row, column = column, botName = this.Request.QueryString["botName"], state = Model.Serialize() });
+                    }
+                    else if (Model.IsXAt(row, column))
+                    {
+                        <strong>X</strong>
+                    }
+                    else
+                    {
+                        <strong>O</strong>
+                    }
+                </div>
+            }
+        </div>
+    }
+
+</div>

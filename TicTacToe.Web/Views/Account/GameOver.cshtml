@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Play";
+}
+@model TicTacToe.Common.Game
+
+@if (Model.IsXWin)
+{
+    <h2>X Wins!</h2>
+}
+else if (Model.IsOWin)
+{
+    <h2>O Wins!</h2>
+}
+else
+{
+    <h2>It's a Tie!</h2>
+}
+
+<div>
+    @for (int row = 0; row < 3; row++)
+    {
+        <div class="row">
+            @for (int column = 0; column < 3; column++)
+            {
+                <div class="col-xs-1">
+                    @if (Model.Board.IsXAt(row, column))
+                    {
+                        <strong>X</strong>
+                    }
+                    else if (Model.Board.IsOAt(row, column))
+                    {
+                        <strong>O</strong>
+                    }
+                </div>
+            }
+        </div>
+    }
+
+    <p>Play a @Html.ActionLink("new game", "NewGame").</p>
+</div>

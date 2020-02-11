@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Play";
+}
+
+<h2>New Game</h2>
+<div>
+    <p>
+        Click below to start a new game with:
+    </p>
+    <ul>
+        <li>@Html.ActionLink("Random Bot", "Play", new { botName = "RandomBot" })</li>
+        <li>@Html.ActionLink("MinMax Bot", "Play", new { botName = "MinMaxBot" })</li>
+    </ul>
+</div>
